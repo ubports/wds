@@ -1,0 +1,43 @@
+wds (1.0.1+ubports) xenial; urgency=medium
+
+  * debian: control: note vcs urls
+
+ -- Simon Fels <simon.fels@canonical.com>  Thu, 21 Apr 2016 07:15:22 +0200
+
+wds (1.0.0-0ubuntu2) xenial; urgency=medium
+
+  * debian/patches/0001-Fix-sort-order-of-video-format-list.patch:
+    - Fix sort order of video format list.
+
+ -- Simon Fels <simon.fels@canonical.com>  Fri, 19 Feb 2016 11:18:46 +0100
+
+wds (1.0.0-0ubuntu1) xenial; urgency=medium
+
+  * New upstream release.
+  * debian/patches/*:
+    - Drop all as they are now applied upstream.
+
+ -- Simon Fels <simon.fels@canonical.com>  Wed, 10 Feb 2016 12:37:37 +0100
+
+wds (0.0+git20150908+3695aa5-0ubuntu4) vivid; urgency=medium
+
+  * Fix build dependencies
+  * Depend on binary package from -dev one
+  * debian/patches/0003-Mark-ourself-as-a-proper-C-project-for-cmake.patch
+    debian/patches/0004-Add-proper-pkgconfig-file-and-fix-versioning.patch
+    debian/patches/0005-Set-correct-lib-dir-in-pkg-config-file.patch:
+    - Added proper versioning and a pkg-config file
+  * debian/libwds-dev.install
+    - Add wds.pc
+
+ -- Simon Fels <simon.fels@canonical.com>  Fri, 27 Nov 2015 11:18:37 +0100
+
+wds (0.0+git20150908+3695aa5-0ubuntu1) vivid; urgency=medium
+
+  * Initial release.
+  * debian/patches/0001-Add-support-to-install-libwds.patch:
+    - Upstream currently don't has any support to install build binaries
+  * debian/patches/0002-Install-necessary-header-files.patch:
+    - Upstream currently don't has support to install any header files
+
+ -- Simon Fels <simon.fels@canonical.com>  Tue, 10 Nov 2015 13:27:23 +0100

@@ -1,0 +1,36 @@
+From b254e6e016fb4c5341ed121cd9125b5fedb8e994 Mon Sep 17 00:00:00 2001
+From: Simon Fels <simon.fels@canonical.com>
+Date: Fri, 19 Feb 2016 11:16:15 +0100
+Subject: [PATCH] Fix sort order of video format list
+
+Due to the recent changes the video format list was sorted the other
+way round so that the format with the lowest priority came first and
+was then picked as optimal video format.
+
+This changes the sort order back so that the highest prioritized
+format comes first.
+---
+ libwds/common/video_format.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/libwds/common/video_format.cpp b/libwds/common/video_format.cpp
+index 69ed3d9..840fc4f 100644
+--- a/libwds/common/video_format.cpp
++++ b/libwds/common/video_format.cpp
+@@ -158,10 +158,10 @@ std::pair<uint, uint> get_resolution(const H264VideoFormat& format) {
+ 
+ bool video_format_sort_func(const H264VideoFormat& a, const H264VideoFormat& b) {
+   if (get_quality_info(a).weight != get_quality_info(b).weight)
+-    return get_quality_info(a).weight < get_quality_info(b).weight;
++    return get_quality_info(a).weight > get_quality_info(b).weight;
+   if (a.profile != b.profile)
+-    return a.profile < b.profile;
+-  return a.level < b.level;
++    return a.profile > b.profile;
++  return a.level > b.level;
+ }
+ 
+ template <typename RREnum>
+-- 
+2.5.0
+

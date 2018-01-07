@@ -1,0 +1,44 @@
+Source: wds
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Section: net
+Priority: optional
+Build-Depends: debhelper (>> 9.20120115),
+               cmake,
+               pkg-config,
+               bison,
+               flex,
+               libglib2.0-dev,
+               libgstreamer1.0-dev
+Standards-Version: 3.9.6
+Homepage: https://github.com/01org/wds
+Vcs-Git: https://git.launchpad.net/~phablet-team/+git/wds
+Vcs-Browser: https://git.launchpad.net/~phablet-team/+git/wds
+
+Package: libwds0
+Section: libs
+Architecture: linux-any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Library implementing the Miracast / WiFi Display protocol
+ The library implements the Miracast / WiFi Display dialect of RTSP
+ and allows its user to provide the missing peaces like network
+ management or the actual video content handling.
+ .
+ This package contains the shared libraries.
+
+Package: libwds-dev
+Section: libdevel
+Architecture: linux-any
+Multi-Arch: same
+Depends: ${misc:Depends},
+         libwds0 (= ${binary:Version})
+Description: Develoment files for the WDS library
+ The library implements the Miracast / WiFi Display dialect of RTSP
+ and allows its user to provide the missing peaces like network
+ management or the actual video content handling.
+ .
+ This package is needed to compile programs against libwds0,
+ as only it includes the header files and static libraries (optionally)
+ needed for compiling.
